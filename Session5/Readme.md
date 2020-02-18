@@ -1,20 +1,63 @@
-Code	Target	Changes	Parameters	Best Train Accuracy	Best Test Accuracy	Analysis
-CODE 1	basic model with setup	"1. get test train data
+# CODE 1
+## Target: basic model with setup	
+1. get test train data
 2. set transforms
 3. set data loaders
 4. setup a simple model without any fancy stuff
-5. set training & test loop"	77,562	99.87%	99.87%	"1. the best train and test accuracy are similar 
+5. set training & test loop
+## Result:
+Parameters: 77,562	
+Best Train Accuracy: 99.87%	
+Best Test Accuracy: 99.87%	
+## Analysis: 
+1. the best train and test accuracy are similar 
 2. the number of parameters is too high"
-CODE 2	reduce parameters	1. Changed the kernels and layers to reducce the number of parameters	7,690	98.62	98.86%	"1. Training accuracy & test accuracy has decreased due to lesser parameters 
-2. Model has capability to improve by increasing training accuracy"
-CODE 3	batchnorm	Added the batchnorm after every convulution	7,840	99.51%	99.61%	"1. model performs good after the 10th epoch
-2. we can try making model more efficient by introducing GAP"
-CODE 4	GAP & increasing model capacity	Added GAP layer in output block & added a layer after that	7,840			
-CODE 5	data augmentation	Added data augmentation to make model more robust	7,840			
+
+# CODE 2
+## Target: reduce parameters
+1. Changed the kernels and layers to reducce the number of parameters
+## Result:
+Parameters: 7,690
+Best Train Accuracy: 98.62%
+Best Test Accuracy: 98.86%
+## Analysis:
+1. Training accuracy & test accuracy has decreased due to lesser parameters 
+2. Model has capability to improve by increasing training accuracy
+
+# CODE 3 
+## Target: batchnorm	
+Added the batchnorm after every convulution
+## Result:
+Parameters: 7,840	
+Best Train Accuracy: 99.51%
+Best Test Accuracy: 99.61%
+## Analysis:
+1. model performs good after the 10th epoch
+2. we can try making model more efficient by introducing GAP
+
+# CODE 4
+## Target: Regularization 
+Added dropout as regularization to push model even further and increase both train & test accuracy
+## Result:
+Parameters: 7,840
+Best Train Accuracy: 98.97%
+Best Test Accuracy: 99.45%
+## Analysis: 
+The model has reduced slightly here,
+similare result were observed by adding gap layer, hence removed from final model
+
+# CODE 5
+## Target: data augmentation	
+Added data augmentation to make model more robust			
+## Result:
+Parameters: 7,840
+Best Train Accuracy: 98.93%
+Best Test Accuracy: 99.48%
+## Analysis:
+The model accuracy has not increased but that is expected as we have made it harder for the model to train.
 
 
-
-### Model layer: Input, Output, Receptive Field
+### Final Model layer: Input, Output, Receptive Field
                     
 Layer	| Nin |	k	| p | s |	Nout | jout |	RF
 ----- |-----|---|---|---|----- |----- |---
